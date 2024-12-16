@@ -58,7 +58,7 @@ function App() {
               />
           </SnackbarProvider>
          
-          <PieChart expenseList={expenseList} />
+          {expenseList.length > 0 ?  <PieChart expenseList={expenseList} /> : null }
         </div>
        
       </div>

@@ -21,35 +21,38 @@ const Transaction = ({ expenseList, setExpenseList, setBalance, setCurrentTransa
 
   return (
     <div className='each-transaction-wrap'>
-     {expenseList.length > 0 ? <h3 className='color-white'>Recent Transaction</h3> : null} 
-     <div className='each-transaction-wrapper'>
-     {expenseList.map((val, id) => (
-        <div className="each-transaction" key={id}>
-          <div className="transaction">
-            <div className='transaction-title'> 
-            <div className="transaction-category-icon">
-              {categoryIcons[val.category] || null} {/* Display the icon based on the category */}
-            </div>
-            <h3>{val.title}</h3>
-            </div>
-          
-            <div className="transaction-edit">
-              <div className='trans-amount'>
-                ₹ {val.amount}
+     {expenseList.length > 0 ? 
+     <div>
+      <h3 className='color-white'>Recent Transaction</h3> 
+      <div className='each-transaction-wrapper'>
+      {expenseList.map((val, id) => (
+          <div className="each-transaction" key={id}>
+            <div className="transaction">
+              <div className='transaction-title'> 
+              <div className="transaction-category-icon">
+                {categoryIcons[val.category] || null} {/* Display the icon based on the category */}
               </div>
-              <div className='trans-cancel'>
-                <MdCancel onClick={() => cancelTransaction(id)} size={37}/>
+              <h3>{val.title}</h3>
               </div>
-              <div className='trans-edit'>
-                <MdEdit onClick={() => editTransaction(val)} size={37}/>
+            
+              <div className="transaction-edit">
+                <div className='trans-amount'>
+                  ₹ {val.amount}
+                </div>
+                <div className='trans-cancel'>
+                  <MdCancel onClick={() => cancelTransaction(id)} size={37}/>
+                </div>
+                <div className='trans-edit'>
+                  <MdEdit onClick={() => editTransaction(val)} size={37}/>
+                </div>
               </div>
             </div>
+            <h3 className='trans-date'>{val.date}</h3>
           </div>
-          <h3 className='trans-date'>{val.date}</h3>
-        </div>
-      ))}
+        ))}
+      </div>
      </div>
-      
+      : null} 
     </div>
   );
 };
