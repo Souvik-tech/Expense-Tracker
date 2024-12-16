@@ -5,16 +5,59 @@ box-sizing: border-box;
 }
 .App {
   padding: 20px;
+  background-color: #3B3B3B;
 }
 .expense-wrap{
   padding: 20px;
-  background-color: #3B3B3B;
+ 
+}
+.each-transaction-wrap{
+  padding: 20px;
+}
+.each-transaction-wrapper{
+  background: #fff;
+  padding: 20px;
+  border-radius: 20px;
+}
+.color-white{
+  color: #fff;
 }
 .transaction-title{
   display: flex;
   align-items: center;
 }
+.trans-date{
+  color: #9B9B9B;
+}
+.each-transaction{
+  border-bottom: 1px solid #9B9B9B;
+  margin-bottom: 30px;
+}
+button{
+  cursor: pointer;
+}
+.trans-cancel{
+  cursor: pointer;
+  color: #FF3E3E;
+  margin-right: 5px;
+}
+.trans-edit{
+  cursor: pointer;
+  color: #F4BB4A;
+
+}
+.trans-amount{
+  color: #F4BB4A;
+  margin-right: 5px;
+}
 .transaction-category-icon{
+  background: #D9D9D9;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  height: 38px;
+  width: 38px;
   margin-right: 20px;
 }
 
@@ -84,6 +127,7 @@ button:hover{
     border-radius: 10px;
     padding: 40px 50px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
 }
@@ -117,11 +161,26 @@ h1,h2,h3,h4,h5,h6{
   margin-bottom: 10px;
 }
 .recharts-wrapper{
+  background: #fff;
   padding: 0 40px;
+  margin: 0 20px;
+  border-radius: 20px;
 }
-
+@media (max-width:1024px){
+  .flex{
+    flex-wrap: wrap;
+  }
+  .each-transaction-wrap{
+    width: 100%;
+  }
+  .boxWrapInner{
+    margin-bottom: 30px;
+  }
+}
 @media (max-width:767px) {
   .each-transaction-wrap{
     width: 100%;
   }
+  
+  
 }

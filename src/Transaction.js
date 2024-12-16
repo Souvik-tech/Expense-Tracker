@@ -21,8 +21,9 @@ const Transaction = ({ expenseList, setExpenseList, setBalance, setCurrentTransa
 
   return (
     <div className='each-transaction-wrap'>
-      <h3>Recent Transaction</h3>
-      {expenseList.map((val, id) => (
+     {expenseList.length > 0 ? <h3 className='color-white'>Recent Transaction</h3> : null} 
+     <div className='each-transaction-wrapper'>
+     {expenseList.map((val, id) => (
         <div className="each-transaction" key={id}>
           <div className="transaction">
             <div className='transaction-title'> 
@@ -33,17 +34,22 @@ const Transaction = ({ expenseList, setExpenseList, setBalance, setCurrentTransa
             </div>
           
             <div className="transaction-edit">
-              <div>
-                ₹ {val.amount} <MdCancel onClick={() => cancelTransaction(id)} />
+              <div className='trans-amount'>
+                ₹ {val.amount}
               </div>
-              <div>
-                <MdEdit onClick={() => editTransaction(val)} />
+              <div className='trans-cancel'>
+                <MdCancel onClick={() => cancelTransaction(id)} size={37}/>
+              </div>
+              <div className='trans-edit'>
+                <MdEdit onClick={() => editTransaction(val)} size={37}/>
               </div>
             </div>
           </div>
-          <h3>{val.date}</h3>
+          <h3 className='trans-date'>{val.date}</h3>
         </div>
       ))}
+     </div>
+      
     </div>
   );
 };
